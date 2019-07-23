@@ -1,4 +1,30 @@
-  <!-- <input type="radio" name="area" value="10" checked />臺北市
+<input type="radio" name="area" value="A" checked />臺北市
+<input type="radio" name="area" value="B" />臺中市
+<input type="radio" name="area" value="C" />基隆市
+<input type="radio" name="area" value="D" />臺南市
+<input type="radio" name="area" value="E" />高雄市
+<input type="radio" name="area" value="F" />新北市
+<input type="radio" name="area" value="G" />宜蘭縣
+<input type="radio" name="area" value="H" />桃園市
+<input type="radio" name="area" value="I" />嘉義市
+<input type="radio" name="area" value="J" />新竹縣
+<input type="radio" name="area" value="K" />苗栗縣
+<input type="radio" name="area" value="M" />南投縣
+<input type="radio" name="area" value="N" />彰化縣
+<input type="radio" name="area" value="O" />新竹市
+<input type="radio" name="area" value="P" />雲林縣
+<input type="radio" name="area" value="Q" />嘉義縣
+<input type="radio" name="area" value="T" />屏東縣
+<input type="radio" name="area" value="U" />花蓮縣
+<input type="radio" name="area" value="V" />台東縣
+<input type="radio" name="area" value="W" />金門縣
+<input type="radio" name="area" value="X" />澎湖縣
+<input type="radio" name="area" value="Z" />連江縣
+
+  
+
+
+<!-- <input type="radio" name="area" value="10" checked />臺北市
             <input type="radio" name="area" value="11" />臺中市
             <input type="radio" name="area" value="12" />基隆市
             <input type="radio" name="area" value="13" />臺南市
