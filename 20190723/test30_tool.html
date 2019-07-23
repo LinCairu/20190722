@@ -1,0 +1,35 @@
+<script src="test30_tool.js"></script>
+<script>
+// sayYaV5("YA!","Ruby")    //測試一下有沒有連結
+
+let ans = aaa;  
+document.write(ans(1,1) + "<br>");
+
+
+let id="M140051653";
+if(checkTWID(id)){
+    document.write("OK!")
+}else{
+    document.write("NO!")
+}
+
+
+function checkID(){
+    let mesg = document.getElementById("mesg");
+    // mesg.innerHTML = parseInt(Math.random()*49);
+    let id = document.getElementById("id").value;
+mesg.innerHTML = checkTWID(id)? "OK!":"Error!";
+
+}
+</script>
+
+<form>
+
+Name:<input type="text"><br>
+ID:<input  type="text" id="id" onblur="checkID()" />
+<span id="mesg"></span><br>
+Gender:<input type="radio" name="gender" checked/>Male
+<input type="radio" name="gender" checked/>Female
+<!-- radio  單選 -->
+
+</form>

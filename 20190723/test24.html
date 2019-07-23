@@ -1,0 +1,20 @@
+<script>
+let a = [1, 2, "asd", "d", 3, "ruby"];  //index到8  但有9個元素
+
+a[10] = "ok";
+
+for(let i=0; i<a.length; i++){
+    document.write(a[i] + " ");
+}
+document.write("<hr>");
+
+for(let i in a){           //列出a[i]裡面有值的部分
+    document.write(a[i] + " ");
+}
+
+document.write("<hr>");
+for(let value of a){        //巡訪A裡面的所有值(value)   除了列出a有值的部分undefine也會被列出來
+    document.write(value + " ");
+}
+
+</script>

@@ -1,0 +1,34 @@
+<script>
+    let a = 10, b = 8;
+    switch (a) {
+        case 1:                     //比對  a跟1比對 不是  下一個... 是  跳出
+            document.write("A");
+            break;
+        case 10:
+            document.write("B");
+            break;
+        case "10":
+            document.write("B-2");
+            break;
+        case 100:
+            document.write("C");
+            break;
+        case b + 2:
+            document.write("C");
+            break;
+        default:
+            document.write("Z");
+            break;
+
+    }
+    document.write("<hr>end");
+
+//break;   敘述句結束了!
+//包含型別比對，全等比對
+//可以放變數且運算，強行別語言是不能這樣做，除非是常數
+//若case重複(可以)，根據從上至下的原則，只要符合就脫離，下面就不跑了...
+//如果沒有break(可以);會繼續往下跑...直到看到break;才會離開
+//default不一定只能放在最後，可以放在任何位置
+
+
+</script>

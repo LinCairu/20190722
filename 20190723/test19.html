@@ -1,0 +1,29 @@
+<script>
+    // let p = [1, 2, 3, 4, 5, 6];
+    // //document.write(typeof p);   //object物件   p[0] = 1, p[1] = 2,  ....p[5] = 6
+    // p[0] = 123;
+    // p[1] = "Ruby";
+    // p[4] = true;
+    // document.write(p[4]+"<br>");
+    // document.write(p.length+"<br>");   //  5  //如果我跳著給，它會把空資料的都全部算進去
+    // document.write(p[5]+"<br>");
+
+    //完成
+
+    let p = [0, 0, 0, 0, 0, 0];
+    for (let i = 0; i < 100; i++) {
+        let rand = parseInt(Math.random() * 9);
+        p[rand >= 6 ? rand-3 : rand]++;//如果rand=3的話，就做這個, 不然照原本的顯示
+        //三元運算是重點是在取值，用布林判斷。
+        // p[rand]++;
+
+
+
+    }
+    console.log(p)
+    for (let i = 0; i < p.length; i++) {
+        document.write(`${i + 1}點出現${p[i]}次<br>`);
+
+    }
+//樣本數夠多才會準確(機率)
+</script>

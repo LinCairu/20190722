@@ -1,0 +1,21 @@
+<script>
+    let a = 10, b = 3;
+    if (a-- >= 10 && b++ <= 3) {     //--遞減   ++遞增    --在後:先拿原來的值進行運算比對，結束後再來減
+        document.write(`OK : a = ${a}; b = ${b}`);
+    } else {
+        document.write(`XX : a = ${a}; b = ${b}`)
+
+        document.write("<hr>");
+        let c = 3, d = 2;
+        document.write(c ^ d);
+        document.write(c | d);
+        document.write(c & d);
+    }
+
+    //  --a 先加再執行運算比對
+    //  && 和  如果第一個條件是false的話，後面的條件就不會被判斷與執行
+    //  || 或  如果第一個條件是true的話，後面的條件就不會被判斷與執行
+    //  所以要兩個條件都有被判斷到才會被執行到
+    // 如果第一個條件成立卻很堅持要執行第二個條件，把 || or && 改成一個 | or & 符號就可以，把它改成不智慧型...(二進位的and or)
+    
+</script>

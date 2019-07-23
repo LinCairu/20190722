@@ -1,0 +1,49 @@
+<script>
+    // //單列敘述句   
+    // let score = 90;
+    // if (score >= 60) document.write("pass");
+
+
+    // //區塊敘述句1
+    // let score2 = parseInt(Math.random()*101);  //亂數產生成績:0 <= score < 1  //因為只會到100.9999999999  101的生命意義=>0-100有101個數字
+    // //let score2 = parseInt(Math.random()*30+40);  //*代表個數   +位移量  產生40-69的亂數
+    // //let score2 = parseInt(Math.random()*61-30);  //(-30)-30  後端產生驗證碼，前端產生歪七扭八的圖
+    // document.write("亂數分數:" + score2 + "<hr>"); 
+    // if (score2 >= 60) {
+    //     document.write("pass");
+    // } else {
+    //     document.write("down");
+    // }
+    // document.write("<hr>end");
+
+
+    //區塊敘述句
+    //90+ => A
+    //80+ => B
+    //70+ => C
+    //60+ => D
+    //Down => E
+    //if -- else if是巢狀的變形
+ 
+
+    let score3 = parseInt(Math.random() * 101);
+    document.write("亂數分數:" + score3 + "<hr>");
+    if (score3 >= 90) {
+        document.write("A");  //子敘述句，一道敘述句可以省略外面刮號
+    } else if (score3 >= 80) {
+        document.write("B");  //子敘述句
+        score = 57;           //跑進來做完這件事情就脫離，所以不會繼續往下判斷
+    } else if (score3 >= 70) {
+        document.write("C");
+    } else if (score3 >= 60) {
+        document.write("D");
+    } else {
+        document.write("E");
+    }
+               
+
+    document.write("<hr>" + score);   
+
+
+
+</script>

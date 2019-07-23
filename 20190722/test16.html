@@ -1,0 +1,29 @@
+<script>
+
+
+// for (let i = 0; i < 10; i++){
+//     document.write(i + "<br>");
+// }
+
+
+    function init() {
+        document.write("Hello,Ruby!<br>");
+    }
+
+    function drawLine() {
+        document.write("<hr>");
+    }
+    let i = 0;
+
+    for (init(); i < 10; drawLine()) {
+        document.write(i++ + "<br>");
+    }
+
+//迴圈，就是重複執行
+//跟記數器有關，counter，但用計數器看迴圈很狹隘
+//在這樣的情況下(條件，一定會做，只會做一次)要做以下事情
+//for (初始值; 條件(true執行，false跳出); i++  => 執行完回來執行i++然後再一次進行條件判斷){}
+
+
+
+</script>

@@ -1,0 +1,17 @@
+1+2+...+
+<input type="number" id="n">
+<input type="button" value="=" onclick="sum()">
+<span id="result"></span>
+
+<script>
+    function sum() {
+        let n = parseInt(document.getElementById("n").value);
+        let i = 1, sum = 0;
+        while (i <= n) { sum += i++; }
+        document.getElementById("result").innerHTML = sum;
+    }
+
+//return   以下不做再來一次
+//break   以下不做直接脫離
+
+</script>

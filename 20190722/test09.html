@@ -1,0 +1,36 @@
+<script>
+// 從網頁抓出來的任何東西都是字串!!!
+        function check() {
+            let year = parseInt(document.getElementById("year").value);
+            let isOK;   //是閏年
+
+            if (year % 4 == 0) {
+                //
+                if (year % 100 == 0) {
+                    //
+                    if (year % 400 == 0) {
+                        //29
+                        isOK = true;
+                    } else {
+                        //28
+                        isOK = false;
+                    }
+                } else {
+                    isOK = true;
+                    //2016
+                    //29
+                }
+            } else {
+                isOK = false;
+                //28
+            }
+            document.getElementById("result").innerHTML =
+                isOK ? "閏年" : "平年";
+        }
+
+// 不建議使用innertext(不是官方制式的語言)而是用innerHTML  瀏覽器的支援度 
+</script>
+
+Year: <input type="number" value="" id="year">
+<input type="button" value="是否閏年" onclick="check()" />
+<span id="result"></span>

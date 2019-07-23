@@ -1,0 +1,19 @@
+<script>
+    // let i=0
+    // for( ; ; ){     //沒有敘述句就跳過不做而已，不寫沒關係，但中間沒有寫就會直接視為true，造成無窮迴圈
+    // console.log(i);
+    // i++;
+    // }
+
+    // 如果是奇數偶數要做什麼事?
+    for (let i = 0; i < 10; i++) {
+        if (i % 2 == 0) {
+            continue;   //以下內容不做，直接跳到i++的動作
+        }
+        document.write(i + "<br>");
+        if (i == 7) {
+            break;
+        }
+    }
+
+</script>

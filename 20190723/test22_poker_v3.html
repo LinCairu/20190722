@@ -1,0 +1,88 @@
+<script>
+    //進階洗麻將牌
+    //洗牌
+    let poker = [];
+    for (let i = 0; i < 52; i++) poker[i] = i;
+    for (let i = poker.length - 1; i > 0; i--) {   //51, 50, .....
+        let rand = parseInt(Math.random() * (i + 1));       //心中想一個index
+        //把心中想的那個index和最後一張做交換   poker[i] <=> poker[rand]
+        [poker[i], poker[rand]] = [poker[rand], poker[i]];
+
+    }
+    //     for (let i in poker) {     //驗算:一維陣列
+    //     document.write(poker[i] + "<br>");
+    // }
+
+
+    //迭代(Iteration)，一個一個拿出來
+    //JS shuffle 洗牌
+    //stack overflow 和github的貢獻度
+//發牌
+    document.write("<hr>");
+    let players = [[], [], [], []];
+    for (let i = 0; i < poker.length; i++) {
+        // player[][] = poker[i]   //player[][]第幾家,那一家的第幾張
+        players[i % 4].push(poker[i]);
+    }
+    // for (let i in players[0]) {     //驗算:二維陣列
+    //     document.write(players[0][i] + "<br>");
+    // }
+
+
+</script>
+
+
+<table border="1" style="border-collapse: collapse" width="100%">
+
+    <script>
+        // for (let j in players) {
+        //     document.write("<tr>");
+        //     for (let i in players[0]) {     //驗算:二維陣列
+        //         document.write("<td>");
+        //         document.write(players[0][i]);
+        //         document.write("</td>");
+        //     }
+        //     document.write("</tr>");
+        // }
+
+//攤牌
+        let suits = ["&spades;", "&hearts;", '&diams;', "&clubs;"];
+        let cardnum = ["A", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"]
+        for (let player of players) {
+            player.sort(function (a, b) { return a - b; });  //比對function,以比大小的方式做排序，a-b，以一正一負判斷它的位置
+            // 原始語法:function(a, b){return a - b}
+            // player.sort();    //以陣列的排序號碼的第一碼，字串比較
+            document.write("<tr>");
+            for (let card of player) {     //每一家手上的牌
+                if (parseInt(card / 13) == 1 || parseInt(card / 13) == 2) {   //用%13的商和餘數去判定花色與數值
+                    document.write("<td style='color:red'>");
+                } else {
+                    document.write("<td style='color:black'>");
+                }
+                // document.write("<td>");
+                document.write(suits[parseInt(card / 13)] + cardnum[card % 13]);
+                document.write("</td>");
+            }
+            document.write("</tr>");
+        }
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+    </script>
+
+
+</table>

@@ -1,0 +1,29 @@
+<script>
+
+let var1;
+document.write(var1 + ":" + typeof(var1) + "<br>");
+var1=123;  //整數
+document.write(var1 + ":" + typeof(var1) + "<br>");
+var1=12.3;  //浮點數
+document.write(var1 + ":" + typeof(var1) + "<br>");
+var1="123";
+document.write(var1 + ":" + typeof(var1) + "<br>");
+var1=true;
+document.write(var1 + ":" + typeof(var1) + "<br>");
+
+let var2 = 123;    //第一個字元[a-z,A-Z,$,_],第二個字元[a-z,A-Z,0-9,$,_]*(*代表可有可無的條件，但第一個字元一定要遵守規定。)
+document.write(var2 + "<hr>");
+
+</script>
+<hr>
+<script>
+
+const name = "ruby";
+//name = "ruby_lin";  //第二次給值都是無效的
+document.write("my name is " + name + "." + "<br>");
+document.write(`my name is ${name}.<br>`);  //`(1)將變數進行置換，變數寫法${name} (2)可進行運算
+let a = 10, b = 3;
+document.write(`${a} + ${b} = ${a + b}`);
+
+
+</script>

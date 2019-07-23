@@ -1,0 +1,17 @@
+<script>
+let a = 10, b = 3;
+let c = parseInt(a / b);
+document.write(c);
+
+let d = 10, e = 0;
+let f = d / e;
+document.write(f);  //Infinity 無限大
+
+let g = 0, h = 0;
+let i = g / h;
+document.write(i);   //NaN 不是數字
+
+//左右兩邊只要有字串，運算後兩者會變成字串相加，因為會優先以字串相加
+//true在處理運算會變成1,false會變成0
+//運算是從左至右，在加上運算子的優先順序
+</script>

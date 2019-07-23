@@ -1,0 +1,25 @@
+<script>
+    let poker = [];
+    let rand, isReapeat;
+    for (let i = 0; i < 52; i++) {   //邏輯
+        do {
+            rand = parseInt(Math.random() * 52);  //不能重複宣告，在外面宣告這裏就不用宣告了，取用的會是同一個值，但如果這裡也宣告兩者就會不一樣。
+            isReapeat = false;
+            for (let j = 0; j < i; j++) {
+                if (rand == poker[j]) {
+
+                    isReapeat = true;
+                    break;
+                }
+            }
+        } while (isReapeat);
+
+        poker[i] = rand;
+    }
+    // ------------------------------------------------------------
+
+    for (let i in poker) {     //驗算
+        document.write(poker[i] + "<br>");
+    }
+
+</script>

@@ -1,0 +1,43 @@
+<script>
+        function account(){
+
+           let optionval = document.getElementById("optionval");
+           console.log(optionval.selectedIndex);   //除錯的一種方式
+
+           let x = document.getElementById("x").value;  
+           let y = document.getElementById("y").value;  
+           x = parseInt(x);
+           y = parseInt(y);
+           let z;
+
+           if(optionval.selectedIndex == 0){
+               //+
+               z = x + y;
+           }else if(optionval.selectedIndex == 1){
+               //-
+               z = x - y
+           }else if(optionval.selectedIndex == 2){
+               //*
+               z = x * y
+           }else if(optionval.selectedIndex == 3){
+               ///
+               let z1 =  parseInt(x / y);
+               let z2 = x % y;
+               z = z1 + "......" + z2
+           }
+           document.getElementById("result").innerHTML = z; 
+           //alert(x+y);
+        }
+
+        </script>
+        
+        <input type="number" id="x" >
+        <select id="optionval">
+            <option>+</option>
+            <option>-</option>
+            <option>*</option>
+            <option>/</option>
+        </select>
+        <input type="number" id="y">
+        <input type="button" value="=" onclick="account()">
+        <span id="result"></span>

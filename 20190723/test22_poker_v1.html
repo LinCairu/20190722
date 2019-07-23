@@ -1,0 +1,28 @@
+<script>
+    let poker = [];     //洗牌演算法,data
+
+    for (let i = 0; i < 52; i++) {    //邏輯
+        let rand = parseInt(Math.random() * 52);   //0-51，一個數字代表一張牌，所以沒有位移問
+        //先檢查再丟進去陣列
+        let isReapeat = false;
+        for (let j = 0; j < i; j++) {  //只要往前檢查一個就好
+            if (rand == poker[j]) {       //如果產生的poker跟rand一樣就不行了!
+                //重複
+                isReapeat = true;
+                break;
+            }
+        }
+        if (!isReapeat) {    //如果isReapeat不重複
+            poker[i] = rand;
+        } else {
+            i--;
+        }
+    }
+
+    // ------------------------------------------------------------
+
+    for (let i in poker) {        //驗算
+        document.write(poker[i] + "<br>");
+    }
+
+</script>

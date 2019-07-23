@@ -1,0 +1,44 @@
+<script>
+//何時會用到陣列:要處理有很多相同特質的變數，如:車子的品牌...
+
+
+let a = [];                         //object
+let b = [1, 2, 3, 4];
+let c = new Array();
+let d = new Array(7);               //只給一個整數值，會產生7個元素，不建議這樣使用!
+let e = new Array(1, 2, 3, 4);      //c,d,e 不建議使用，a,b比較清楚
+
+// document.write(a instanceof Array + "<br>");    //是不是[該類別:Array]的物件實體
+// document.write(a instanceof Date + "<br>");    //是不是日期的物件實體，不能寫 + "<br>"，它以為後面是一個東西
+document.write(a.length + "<br>");
+
+a.push(1); a.push(12);a.push(123);     //陣列給值
+document.write(a.length + "<br>");
+
+for(let i=0; i<a.length; i++){       //陣列永遠從0開始
+    document.write(a[i] + "<br>");
+} 
+document.write("<hr>");
+//index才是陣列的精神，index可能是有意義的資料，
+
+a[7] = 2000;
+document.write(a.length + "<br>");   //陣列長度8，肚子裡面的8個值是啥?1, 12, 123, undefinded, undefinded, undefinded, 2000,
+document.write("<hr>");
+
+for(let i in a){            //只找出有意義的資料,undefinded跳過
+    document.write(a[i] + "<br>");
+}
+
+document.write("<hr>");
+document.write(a.toString());   //a.轉成字串的方法()，現在大多轉成json字串，和資料庫交換資料
+document.write("<hr>");
+document.write(a.pop() + "<br>");   //pop會return屁股後面那個，先進後出的概念...屁股後面進去從屁股後面拿出來...
+
+for(let i in a){            
+    document.write(a[i] + "<br>");
+}
+
+//pop()會把位置上的東西拿掉，位置也拿掉，因此長度會改變
+//delete()會把位置上的東西拿掉，位置是存在內容變成undefinded，因此長度不變
+
+</script>

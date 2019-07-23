@@ -1,0 +1,25 @@
+<script>
+// let p = [1, 2, 3, 4, 5, 6];
+// //document.write(typeof p);   //object物件   p[0] = 1, p[1] = 2,  ....p[5] = 6
+// p[0] = 123;
+// p[1] = "Ruby";
+// p[4] = true;
+// document.write(p[4]+"<br>");
+// document.write(p.length+"<br>");   //  5  //如果我跳著給，它會把空資料的都全部算進去
+// document.write(p[5]+"<br>");
+
+//未完成，回家作業:完成變數機率作弊，456的機率是123的兩倍
+
+let p = [0, 0, 0, 0, 0, 0];
+for(let i = 0; i<100; i++){
+    let rand = parseInt(Math.random() * 6);
+    p[rand]++;
+
+}
+console.log(p)
+for(let i = 0; i<p.length; i++){
+    document.write(`${i+1}點出現${p[i]}次<br>`);
+    
+}
+//樣本數夠多才會準確(機率)
+</script>

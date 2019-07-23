@@ -1,0 +1,66 @@
+<script>
+    //function 還是要盡量用function，雖然寫太多會變慢，但是維護性比較好，慢也不會多慢
+    function sayYa() {
+        document.write("YA!" + "<br>")
+    }
+    document.write("<hr>");
+
+
+    function sayYaV2(who = "CY") {                 //想跟誰YA  (參數)  自己放預設值
+        document.write(`YA! ${who} <br>`);
+    }
+
+    function sayYaV3(names) {            //跟很多人打招呼
+        if (names instanceof Array) {
+            for (let name of names) {
+                document.write(`YA! ${name}<br>`)
+            }
+        }
+    }
+
+    function sayYaV4(...names) {    //不定個數的參數傳遞   //他骨子裡其實是陣列
+        document.write(typeof name + Array.isArray(names) + "<br>")
+        for (let name of names) {
+            document.write(`YA! ${name}<br>`)
+        }
+    }
+
+
+    function sayYaV5(welcome, ...names) {    //有一個歡迎字樣
+        document.write(typeof name + Array.isArray(names) + "好像怪怪的" + "<br>")
+        for (let name of names) {
+            document.write(`YA! ${name}<br>`)
+        }
+    }
+
+
+
+    sayYa();
+    sayYaV2("Ruby");
+    sayYaV2();
+    sayYaV3(["ruby", "aaaa", "bbbbb", "cccc", "ddddd", "eeee", "fff", "ggg",])
+    document.write("<hr>");
+    sayYaV4();    //沒有就沒有出現
+    document.write("<hr>");
+    sayYaV4("rubyyyyyyyy");
+    document.write("<hr>");
+    sayYaV4("ruby", "aaaa", "bbbbb", "cccc");
+
+
+    document.write("<hr>");
+    sayYaV5("HIIIII", "rubyyyyyyyy");
+
+
+
+// f(x,y) = 2x+y;   函數概念
+let fxy = function(x,y){
+    return 2*x + y;
+};
+document.write(fxy(10,3)+"<br>");
+
+let newfxy = fxy;
+document.write(fxy(3,4)+"<br>");  //回呼
+
+</script>
+
+<!-- JS本身沒有繼承概念，但是透過prototype來製作它... -->

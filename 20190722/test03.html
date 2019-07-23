@@ -1,0 +1,22 @@
+<script>
+function account(){
+//    //let x = document.getElementById("x");   //只取元素
+   let x = document.getElementById("x").value;  //取到元素的值
+   let y = document.getElementById("y").value;  
+   x = parseInt(x);
+   y = parseInt(y);
+   z = x + y;
+
+   document.getElementById("result").innerHTML = z; 
+
+   //alert(x+y);
+}
+
+</script>
+
+<input type="number" id="x" >
+<!-- input的預設值就是輸入資料  什麼都不寫，輸入的型態就不限制，type="number會變成只能輸入數字 -->
++
+<input type="number" id="y">
+<input type="button" value="=" onclick="account()">
+<span id="result"></span>

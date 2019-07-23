@@ -1,0 +1,63 @@
+<script>
+
+
+
+</script>
+<!-- border要改成css，不應該寫在這裡! -->
+<table border="1" width="100%">
+
+        <!-- <script>
+            for (let k = 0; k < 2; k++) {    //k = 5列
+                document.write("<tr>");
+            for (let j = 2; j <= 5; j++) {   //j = 4個
+                let newj = j + k * 4;
+                document.write("<td>");
+                for (let i = 1; i <= 9; i++) {   //i = 9個
+                    // document.write("2 X " + i + "<br>");
+                    let r = newj * i;
+                    document.write(`${newj} X ${i} = ${r} <br>`);
+                }
+                document.write("</td>");
+            }
+            document.write("</tr>");
+        }
+        </script> -->
+
+    <script>
+        const ROW = 3;    //const的變數名稱會用大寫，幾排
+        const START = 2;   //從多少開始數
+        const COL = 3;     //幾欄
+
+
+
+        for (let k = 0; k < ROW; k++) {    //k = 5列
+            document.write("<tr>");
+            for (let j = START; j < (START + COL); j++) {   //j = 4個
+                let newj = j + k * COL;
+
+                let isPink;
+                if (COL %　2 == 0){
+                    isPink = (newj + k)% 2 == 0;
+                }else{
+                    isPink = newj % 2 == 0;
+                }
+
+                // document.write("<td>");
+                document.write("<td bgcolor='" + (isPink?"pink":"yellow") + "'>");
+                for (let i = 1; i <= 9; i++) {   //i = 9個
+                    // document.write("2 X " + i + "<br>");
+                    let r = newj * i;
+                    document.write(`${newj} X ${i} = ${r} <br>`);
+                }
+                document.write("</td>");
+            }
+            document.write("</tr>");
+        }
+    </script>
+
+
+
+
+
+
+</table>
