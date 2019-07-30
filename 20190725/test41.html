@@ -1,0 +1,79 @@
+<h1 id="head"></h1>
+<hr>
+<input type="button" value="clear" onclick="clearall()" />
+<input type="button" value="<=" onclick="moveleft()" />
+<input type="button" value="=>" onclick="moveright()" />
+<!-- 撞到系統上的function命名 系統的會優先 -->
+<hr>
+<canvas id="canvas" width="480" height="320" style="border: 1px solid black"></canvas>
+<!-- 
+先寫html 再寫JS
+網頁的載入時間點會影響程式放置的位置 -->
+
+
+<script>
+    //給了id  物件就會自動存在
+    head.innerHTML = "Ruby";
+    let ctx = canvas.getContext("2d");   //取得  (2d 渲染)  的動作
+    let isDrag = false;
+
+    //canvas 需要用到程式撰寫
+    //用程式畫出線段
+    // ctx.strokeStyle = "rgb(0,0,255)";   //藍色
+    // ctx.beginPath();   //開始路徑
+    // ctx.moveTo(10,10);  //移動位置
+    // ctx.lineTo(100,100);  //到這裡
+    // ctx.stroke();   //去畫
+
+
+    //跟滑鼠互動
+
+    canvas.onmousedown = function (e) {   //有on開頭通常是事件偵測 (listener)   要有聽才有辦法執行
+        console.log("down");
+        isDrag = true;
+        ctx.beginPath();
+        ctx.moveTo(e.offsetX, e.offsetY);
+    }
+    canvas.onmouseup = function () {
+        isDrag = false;
+        console.log("up");
+    }
+    canvas.onmousemove = function (e) {
+        if (!isDrag) return;
+        ctx.lineTo(e.offsetX, e.offsetY); //到這裡
+        ctx.stroke();
+        console.log("drag:" + e.offsetX + e.offsetY);   //offsetX  相對偏移
+    }
+    function clearall() {
+        ctx.clearRect(0, 0, 480, 320);
+    }
+
+    //可以畫線，畫形狀，畫圖
+    //影像資源是外部的，所以要有一個載入的行為IO  input output 是非同步的行為  等它做完才能做下一件事情這才是同步:如存檔可以同時做別的事情，這也屬於非同步
+    let pic = new Image();
+    let picX = 200;
+    pic.src = "pic.png";
+    pic.onload = function () {       //載入完畢再渲染
+        ctx.drawImage(pic, picX, 200);
+    }
+
+    function moveright() {
+        picX += 8;
+        clearall();
+        ctx.drawImage(pic, picX, 200);
+
+    }
+
+    function moveleft() {
+        picX -= 8;
+        clearall();
+        ctx.drawImage(pic, picX, 200);
+    }
+
+
+
+
+
+
+    
+</script>

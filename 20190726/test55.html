@@ -1,0 +1,46 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- <script src="jquery-3.4.1.min.js"></script>     把空白換列拿掉，加快載入速度 -->
+
+
+
+
+<h1 id="test1">Ruby</h1>
+<div id="container">
+    <h1>I'm Ruby</h1>
+    <p>P1</p>
+    <hr>
+    <h1>I'm H2</h1>
+    <p>P2</p>
+    <input type="button" value="ok" id="test2">
+
+</div>
+<hr>
+<script>
+    // $()  合法的變數    名字叫錢號的function   
+    // $("div")     all div element => getElementByTag("div")
+    // $("#id")   id => "id" => getElementById("id")
+    // $(".group")    class=> "group" =>getElementByClassName("group")
+    //$("#container p")   container底下的p
+
+    $("#test1").click(function () {      //我要控制的是id叫test的
+        console.log("OK");
+        $("this").css("color", "blue")    //#test1  = this
+            .css("background-color", "red");    //css()  return  $("test1")
+        let ps = $("P");
+        for (let p of ps) {
+            p.style.color = "blue";
+            p.style.backgroundColor = "yellow";
+        }
+
+        // document.getElementById("container")  把js轉成jq
+        $obj = $(document.getElementById("container"));
+        $obj.css("background-color","pink");    
+
+// $(this).attr("屬性",值);
+
+$("#test2").attr("disabled",true);   //點標題之後所定按扭變XX
+$("#test2").val("xx")
+
+    })
+
+</script>

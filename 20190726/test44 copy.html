@@ -1,0 +1,61 @@
+<h1 id="head"></h1>
+<hr>
+<canvas id="canvas" width="480" height="320" style="border: 1px solid black"></canvas>
+
+
+
+<script>
+    head.innerHTML = "Ruby";
+    let ctx = canvas.getContext("2d");
+    let bg = new Image();
+    bg.src = "bg.jpg"
+    let pic1 = new Image();
+    pic1.src = "pic1.png"   ;    
+
+
+    let picX = 0 ,picY = 0;
+let px = 8, py = 8;
+
+        bg.onload = function () {       //載入完畢再渲染
+            ctx.drawImage(bg, 0, 0);
+        }
+
+
+    canvas.onmousedown = function (event) {     //回呼，按下去要出現一顆球   //事件被接收
+        picX = event.offsetX - 32;
+        picY = event.offsetY - 32; //event = e,    -32以滑鼠為中心
+
+
+    }
+
+    function refreshview() {        //頻率更新
+        // ctx.clearRect(0,0,canvas.width,canvas.height);  //把畫面清除
+        ctx.drawImage(bg, 0, 0);
+        ctx.drawImage(pic1,picX,picY );   
+
+    }
+
+    setInterval(refreshview, 17); //會呼叫一個方法   17=>  1秒60個/1000  =>每0.017秒刷新整個畫面 (視覺頻率)
+
+function movepic(){              //只讓一顆球動
+    if (picX < 0 || picX + 64 > canvas.width){
+        px *= -1;
+    }
+
+    if (picY < 0 || picY + 64 > canvas.height){
+        py *= -1;
+    }
+
+
+    picX += px;
+    picY += py;
+}
+
+
+
+
+setInterval(movepic, 30);   //時間  距離  速度   30單位時間距離的差異
+
+
+
+</script>

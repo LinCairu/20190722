@@ -1,0 +1,76 @@
+<script src="gussnum.js"></script>
+<script>
+    let d = 3;      //幾位數
+    let answer = creatAns(d);
+
+    let logtext = "";
+    let times = 0;   //全域變數
+    // function test(){             //驗算，專屬這個頁面的功能才寫在這!如果是其他地方也會用的就不要寫在這~
+    //     answer = creatAns(8);    //幾碼
+    //     document.getElementById("log").innerHTML = answer;
+    // }
+
+    function doGess() {
+        times++;  //會回傳給 全域變數
+        let guess = document.getElementById("input").value;     //區域變數
+        let result = checkAB(answer, guess);        //區域變數
+        // document.getElementById("log").innerHTML = result;
+
+
+        logtext += `${times}:${guess} => ${result} <br>`;     //每次都累加一點點資料上去
+        document.getElementById("log").innerHTML = logtext;
+        document.getElementById("input").value = "";
+
+        if (result == `${d}A0B`) {
+            alert(`贏了拉!`);
+            replay();
+
+
+        } else if (times == 3) {
+            alert(`你輸了!超爛!: ${answer}`);
+        }
+        document.getElementById("input").focus();   //聚焦，會鎖定在輸入框
+    }
+
+
+
+    function replay() {
+        console.log(answer);        //偷看答案
+        answer = creatAns(d);
+        logtext = "";
+        times = 0;
+        document.getElementById("log").innerHTML = "";
+        document.getElementById("input").value = "";
+        document.getElementById("input").focus();
+    }
+</script>
+
+
+<h1>Guess Number Game</h1>
+<hr>
+<input type="number" id="input">
+<input type="button" value="Guess" onclick="doGess()">
+<input type="button" value="replay" onclick="replay()">
+<select>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+
+</select>
+<hr>
+<div id="log">
+    <!-- 124 => 1A0B <br> -->
+
+
+</div>
+
+<!-- 
+下拉選單選幾碼
+不能數字重複  輸入內容前製檢查
+e(科學記號表示法)也算數字，要排除。 如:2*10的3次方 => 2e3
+整個美化
+猜完一次算時間，太久沒輸入就電腦自動輸入
+
+
+程式的核心功能一定要到位
+ -->

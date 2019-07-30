@@ -1,0 +1,47 @@
+<!-- 可以隱藏部分區塊了解差異性 -->
+<script>
+//自己有定義已自己為主，有prototye以prototye為主
+
+
+let bike = function(name,speed){      //建構式   =>  初始化
+this.name = name;   //  經由參數傳遞進來...name=屬性
+this.speed = speed; 
+this.chspeed = function(speed){
+    document.write("debug4 here");  //用js敘述句在做呈現
+}
+
+
+
+
+}
+// cavas.onmouseout.....
+bike.chspeed = function(speed){
+    document.write("debug3 here");
+this.speed = speed;
+}
+
+//prototype  延伸擴張
+bike.prototype.chspeed = function(speed){   //bike給他prototype   延伸的方法是透過prototype
+    document.write("debug here");
+}
+
+let b1 = new bike("ruby",12);//變更原來的
+b1.chspeed = function(speed){
+    document.write("debug2 here");
+}
+for (let key in b1){
+    document.write(key + ":" + b1[key] +"<br>");
+}
+
+
+document.write("<hr>");
+b1.chspeed(23);
+for (let key in b1){
+    document.write(key + ":" + b1[key] +"<br>");
+}
+
+
+document.write("<hr>");
+let b2 = new bike("peach",12);
+b2.chspeed(23);
+</script>

@@ -1,0 +1,54 @@
+<!-- https://data.coa.gov.tw/ -->
+<!-- http://data.coa.gov.tw/Service/OpenData/TransService.aspx?UnitId=IFJomqVzyB0i -->
+
+<!-- 要看JSON不要看頁面，要看頁面原始碼，雖然一樣可是左邊的列號，JSON不分列的(換行)... -->
+
+
+<script>
+    //\r\n  換列的意思
+    let strJSON = `[
+            {
+                "KeyNo": 116189,
+                "晶片號碼": "965000000274780",
+                "寵物名": "",
+                "寵物別": "狗",
+                "性別": "公",
+                "品種": "迷你品",
+                "毛色": "",
+                "外觀": "短毛",
+                "特徵": "",
+                "遺失時間": "2012/12/20",
+                "遺失地點": "新北板橋 僑中二街48巷\r\n",    
+                "飼主姓名": "劉 先生/小姐",
+                "連絡電話": "0229655654",
+                "EMail": "aaa@"
+            },
+            {
+                "KeyNo": 116188,
+                "晶片號碼": "900138000763133",
+                "寵物名": "菲菲",
+                "寵物別": "狗",
+                "性別": "母",
+                "品種": "約克夏",
+                "毛色": "",
+                "外觀": "短毛",
+                "特徵": "",
+                "遺失時間": "2019/07/26",
+                "遺失地點": "烏來環山路\r\n",
+                "飼主姓名": "高 先生/小姐",
+                "連絡電話": "0980352092",
+                "EMail": "bbb@"
+            }
+        ]
+        `;
+    // document.write(strJSON);
+    strJSON = strJSON.replace(/(\r\n|\n)/g, '')   //把\r\n或\n取代成空字串
+    let data = JSON.parse(strJSON);   //最外圈是一個陣列
+    // document.write(typeof data);
+    // document.write(data.length);
+    for (let row of data){
+        document.write(row.KeyNo + ":"+row.EMail + "<br>");
+    }
+
+
+</script>

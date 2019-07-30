@@ -1,0 +1,40 @@
+<script>
+    let counter = 0;
+    let timer = null;
+    let isRunning = false;
+    function start() {
+        if (isRunning) return;   //如果在跑就回去   if只能用return
+        isRunning = true;
+        //週期任務會被排下去，重複按會一直跑
+        timer = setInterval(doThing, 1 * 1000)  //時間到要做的事情,時間
+    }
+
+    function doThing() {
+        document.getElementById("counter").innerHTML = ++counter;
+    }
+
+
+    function pause() {
+        if (timer != null) {
+            clearInterval(timer);
+        }
+        isRunning = false;
+    }
+
+    function zero() {
+        if (timer != null) {
+            clearInterval(timer);
+        }
+        counter = 0;
+        document.getElementById("counter").innerHTML = counter;
+        isRunning = false;   //布林值是拿來處理程式目前的狀態，如果在看電視就不能按"快轉"的按鈕那是給vedio用的
+
+    }
+
+</script>
+Timer: <span id="counter">0</span>
+<hr>
+<!-- disabled   不能點擊的意思 -->
+<input type="button" value="Start" onclick="start()" />
+<input type="button" value="Pause" onclick="pause()" />
+<input type="button" value="Zero" onclick="zero()" />

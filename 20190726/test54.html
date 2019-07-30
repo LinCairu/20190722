@@ -1,0 +1,41 @@
+<script>
+    //Access Across Demains 跨網域
+    //類別方法就是static方法
+    //物件方法就是一定要有物件
+    //get  直接用url管理與傳送  ?key = value   key 在不同瀏覽器會有不同限制
+    //post   會透過程式或第三方工具達到除錯的工作   檔案上傳一定一定一定要用post
+    //http  明碼   https  有加上ssl機制  因此相對安全   
+    //https://www.w3schools.com/js/js_ajax_http.asp
+
+
+
+    let xhttp = new XMLHttpRequest();
+    function test1() {
+        xhttp.onreadystatechange = function () {
+            switch (this.readyState) {
+                case 1:
+                    status1.innerHTML = "OK"; break;
+                case 2:
+                    status2.innerHTML = "OK"; break;
+                case 3:
+                    status3.innerHTML = "OK"; break;
+                case 4:
+                    status4.innerHTML = "OK:" + this.status;
+
+            }
+        };
+        xhttp.open("GET", "brad01.php", true);   //true  非同步
+        xhttp.send();
+    }
+</script>
+<!-- <form method="POST" action="brad01.php">
+    <input type="file" name="upload" />
+    <input type="submit" name="upload" />
+
+</form> -->
+
+<input type="submit" name="upload" onclick="test1()" />
+<div id="status1"></div>
+<div id="status2"></div>
+<div id="status3"></div>
+<div id="status4"></div>

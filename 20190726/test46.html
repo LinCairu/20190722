@@ -1,0 +1,28 @@
+<script>
+//js本身沒有繼承的概念
+let bike = function(){
+    console.log("a bike constructure!");   //建構式
+    this.a = 12;
+    this.b = 34;  
+
+}
+
+let b1 = new bike();// new  是建立物件實體  執行腳踏車的初始建構式
+
+bike.prototype.x = 111; //擴充在prototype的屬性
+document.write(b1.x + "<br>");  //實體腳踏車就多了這個屬性，但如果我指定a或b就不會被影響...
+
+
+bike.prototype.b = 222; //擴充在prototype的屬性
+document.write(b1.b + "<br>");  //被蓋掉隱藏起來，卻沒有
+
+let b2 = new bike(); //初始化
+b2.a =56;  
+b2.c = 78;
+document.write(b2.a + "<br>");   //56
+document.write(b2.b + "<br>");    //34
+document.write(b2.c + "<br>");   //78
+document.write(b2.x + "<br>");    //111
+
+
+</script>

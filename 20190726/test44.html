@@ -1,0 +1,103 @@
+<h1 id="head"></h1>
+<hr>
+<canvas id="canvas" width="480" height="320" style="border: 1px solid black"></canvas>
+
+
+
+<script>
+    head.innerHTML = "Ruby";
+    let ctx = canvas.getContext("2d");
+    let bg = new Image();
+    bg.src = "bg.jpg"
+    let pic1 = new Image();
+    let pic2 = new Image();
+    let pic3 = new Image();     //只會載入三個款式
+    pic1.src = "pic1.png";
+    pic2.src = "pic2.png";
+    pic3.src = "pic3.png";      //有球了
+    let picImg = [pic1, pic2, pic3];
+    let pics = [];
+    let picobj = {      //它是物件也是類別，身為樣本圖
+        //資料型態可以越單純越乾淨最好
+        x: 0,      //有預設值才有初始化
+        y: 0,
+        px: 8,       //位移
+        py: 8,
+        img: 0,     //0代表pic1  (index)
+    };
+
+
+    bg.onload = function () {       //載入完畢再渲染
+        ctx.drawImage(bg, 0, 0);
+    }
+
+
+
+
+    canvas.onmousedown = function (event) {     //回呼，按下去要出現一顆球   //事件被接收
+
+        let pic = clone(picobj);  //複製一顆球 ，也可以用new，但js雖然到6但還是以5版會比較好，瀏覽器相容性比較高
+        pic.x = event.offsetX - 32;
+        pic.y = event.offsetY - 32;
+        pic.px = parseInt(Math.random() * 17 - 8)
+        pic.py = parseInt(Math.random() * 17 - 8)
+        pic.img = parseInt(Math.random() * picImg.length);
+        pics.push(pic);
+
+    }
+
+    function refreshview() {        //頻率更新
+        ctx.clearRect(0, 0, canvas.width, canvas.height);  //把畫面清除
+        ctx.drawImage(bg, 0, 0);
+
+
+
+        for (let pic of pics) {
+            ctx.drawImage(picImg[pic.img], pic.x, pic.y);
+        }
+    }
+    setInterval(refreshview, 17); //會呼叫一個方法   17=>  1秒60個/1000  =>每0.017秒刷新整個畫面 (視覺頻率)
+
+
+    function movepic(obj) {
+        if (obj.x < 0 || obj.x + 64 > canvas.width) {
+            obj.px *= -1;
+        }
+
+        if (obj.y < 0 || obj.y + 64 > canvas.height) {
+            obj.py *= -1;
+        }
+
+        obj.x += obj.px;
+        obj.y += obj.py;
+    }
+
+    function go() {
+        for (let pic of pics) {
+            // console.log(pic);
+            movepic(pic);
+
+        }
+    }
+
+    setInterval(go, 30);
+
+
+    //實現物件複製的function,js原生沒有clone
+    //https://stackoverflow.com/questions/728360/how-do-i-correctly-clone-a-javascript-object
+    function clone(source) {
+        // if (null == source || "object" != typeof source) return source;  //如果你傳遞進來是空或不是物件，就把source原封不動傳回去
+        if (source == null || typeof (source) != "object") return null;
+        let target = new Object();
+        for (let attr in source) { //這些attr屬性在source裡面
+            if (typeof (source[attr]) != "object") {
+                target[attr] = source[attr];
+            } else {
+                target[attr] = clone(source[attr]);
+            }
+
+        }
+        return target;
+    }
+
+</script>

@@ -1,0 +1,41 @@
+<script>
+
+    function changeAlign() {
+        let mytext = document.getElementById("mytext");
+       //document.write(typeof mytext);   //要改變下拉選單的狀態才看得到
+
+        let textAlign = document.getElementById("textAlign");
+
+
+        
+        mytext.style["textAlign"] = textAlign.value;
+
+
+
+
+        
+        for (let key in mytext.style) {  //如果不知道怎麼用可以先尋訪他，看有什麼屬性可以應用
+            // console.log(key +":" + mytext[key]);
+            console.log(key + ":" + mytext.style[key]);
+        }
+
+
+
+
+
+
+    }
+
+//document.write 會被視為一個新的頁面，  所以使用console.log來看輸出結果會比較好
+</script>
+
+
+<!-- mytext會擁有style的屬性 -->
+<div id="mytext" style="text-align: right; ">hello!ruby~</div>
+<hr>
+<select id="textAlign" onchange="changeAlign()">
+    <!-- onchange值一改變就就幫我改變狀態 -->
+    <option value="left">Left</option>
+    <option value="center">center</option>
+    <option value="right">right</option>
+</select>

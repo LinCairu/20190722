@@ -1,0 +1,73 @@
+
+<script>
+    //json
+    //物件重要的不是方法而是屬性!!!
+    let person = {
+        name: "ruby",
+        age: 18,
+        weight: 100,
+        bike: [{
+            brand: "giant",
+            speed: "10",
+        }, {
+            brand: "ubike",
+            speed: "3",
+        }],
+        eat: function () {
+            document.write(this.name + ":eating...");
+        }
+    }
+
+
+    let strJSON = JSON.stringify(person);   //轉成JSON
+    document.write(strJSON);
+    document.write("<hr>");
+
+    let person2 = JSON.parse(strJSON);   //轉成物件
+    for (let key in person2) {
+        document.write(key + ":" + person2[key] + "<br>");   //回來只有屬性
+    }
+
+    person.eat.call(person2);   //要把資料找回來
+    document.write("<hr>");
+
+    let person3 = clone(person);  //連方法都有clone
+    person3.eat();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // ----------------------------------------------------------------------
+    //實現物件複製的function,js原生沒有clone test44.html
+
+    function clone(source) {
+        if (source == null || typeof (source) != "object") return null;
+        let target = new Object();
+        for (let attr in source) {
+            if (typeof (source[attr]) != "object") {
+                target[attr] = source[attr];
+            } else {
+                target[attr] = clone(source[attr]);
+            }
+
+        }
+        return target;
+    }
+</script>

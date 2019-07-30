@@ -1,0 +1,21 @@
+<script>
+    //function也可以是物件
+    let f = function () {
+        this.a = 1;      //  敘述句
+        this.b = 2;
+    }
+
+    let obj = new f();      //物件  建構式邏輯  一個物件的初始化  new在記憶體產生空間的存在  然後經過fuction的初始化
+    document.write(typeof obj + "<br>");
+    document.write(obj.a + ":" + obj.b + "<br>");
+
+    f.prototype.b = 3  //不會改變原來的
+    f.prototype.c = 4   //屬性擴充   可以增加屬性或方法
+    document.write(obj.a + "<br>");
+    document.write(obj.b + "<br>");
+    document.write(obj.c + "<br>");
+
+
+
+
+</script>

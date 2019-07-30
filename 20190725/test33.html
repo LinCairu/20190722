@@ -1,0 +1,80 @@
+<!-- 物件導向
+非常人類，很自然的思考方式，程式設計會比較輕鬆
+用自然平常的方式去思考程式邏輯 
+
+物件最重要的是屬性不同
+人類   都是由人類複製出來  但每個人還是不一樣
+-->
+
+<script>
+    let bike = new Object();   //new出一個新的物件
+    document.write(typeof bike + "<br>");
+
+    bike.speed = 0;         //bike.(擁有的)屬性是...     腳踏車擁有速度   先賦予屬性
+
+
+    //在定義方法  提供兩個功能來處理bike.speed的速度
+    bike.upspeed = function () {        //影響屬性的東西就是功能    腳踏車擁有加速度的功能
+        // 因為function，所以這個方法會看不到bike這個物件，所以要用this
+        this.speed = this.speed < 1 ? 1 : this.speed * 1.2;    //.this 這個物件，就像古代的皇帝自稱朕，本人的意思，代表本類別的物件實體
+    }
+
+    bike.downspeed = function () {
+        this.speed = this.speed < 1 ? 0 : this.speed * 0.7;
+    }
+    
+    //處理屬性
+    bike.upspeed(); bike.upspeed(); bike.upspeed(); bike.upspeed();
+    bike.downspeed();
+    document.write(bike.speed + "<hr>");
+
+    //bike2的寫法的彈性會比bike2大
+
+    let bike2 = {           //直接表是一個物件
+        speed: 0,      //屬性:值
+        gear: 1,       //檔速:1速
+        upspeed: function () {           //定義加速度功能
+            this.speed = this.speed < 1 ? 1 : this.speed * this.gear * 1.2;
+        },          //每一個成員之間都用,隔開
+
+        downspeed: function () {
+            this.speed = this.speed < 1 ? 0 : this.speed * 0.7;
+        },
+    };
+
+    document.write(bike2.speed + "<br>");
+    bike2.upspeed(); bike2.upspeed();
+    document.write(bike2.speed + "<br>");
+
+
+    //陣列也是物件，所以物件也可以說是陣列的變形
+
+    bike2["upspeed"]();  //
+    document.write(bike2.speed + "<br>");
+
+    let method = "upspeed";
+    bike2[method]();
+    document.write(bike2.speed + "<hr>");
+
+    //只要看到中刮號就是陣列
+
+    for (let key in bike2) {
+        document.write(key + "=>" + bike2[key] + "<br>");
+    }
+
+    document.write("<hr>");    //document這就是物件
+
+
+    //內建的物件
+    //JavaScript and HTML DOM Reference
+    //內建的物件有些會有從屬關係
+    for (let key in document) {
+        document.write(key + "=>" + document[key] + "<br>");
+    }
+
+    for (let key in window) {
+        document.write(key + "=>" + document[key] + "<br>");
+    }
+
+
+</script>

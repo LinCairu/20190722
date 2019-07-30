@@ -1,0 +1,28 @@
+<script>
+    let timeout = null;   //給預設值是為了要判斷
+    function test1() {
+
+        timeout = setTimeout(test2, 3 * 1000);     //誰來處理這件事,三秒,預約做什麼事
+
+//try:按鈕按了先判斷有沒有按過  按過的話   要直到該任務結束才能再按
+    }
+
+    function test2() {
+        document.getElementById("here").innerHTML =
+            parseInt(Math.random() * 49 + 1);
+    }
+
+
+    function test3() {                   //把任務取消，提早結束
+        if (setTimeout != null) {
+            clearTimeout(timeout);
+            document.getElementById("here").innerHTML = "nothing";
+        }
+    }
+
+</script>
+
+<input type="button" value="click1" onclick="test1()" />
+<input type="button" value="click2" onclick="test3()" />
+<hr>
+<div id="here"></div>

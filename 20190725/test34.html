@@ -1,0 +1,26 @@
+<script>
+
+    let a = [];
+    //物件是用陣列的觀念處理成員
+
+    a["name"] = "Ruby";  
+    a["age"] = 18;
+
+    document.write(a["name"] + ":" + a["age"] + "<br>");
+    a.push(123); a.push(12.3); a.push("CY");    //index
+
+    for (let key in a) {
+        document.write(key + "=>" + a[key] + "<br>");
+    }
+    document.write("<hr>");
+
+    a["eat"]=function(){ //A有一個屬性叫吃，是一個方法
+        document.write(this.name + " eat somthing.<hr>")
+
+    }   
+    a.eat();
+//JSON  就是在表現陣列跟物件  比較有一個結構
+
+
+
+</script>

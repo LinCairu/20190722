@@ -1,0 +1,88 @@
+<script>
+    // JS ES6 物件導向  不建議使用  蜜糖的寫法  只是把就有的程式架構重新包裝，但骨子內還是一樣
+
+    class Bike {
+        constructor(speed) {        //物件方法 要有物件才能呼叫  類別方法是不需要物件就能夠呼叫方法
+            document.write("Bike()<br>");
+            this.speed = speed;   //初始化
+            this.name = "";
+        }
+        upSpeed() {
+            document.write("Bike:upSpeed()<br>");
+        }
+        static m1(){   //不需要物件，只是分類的概念   static沒有物件的觀念(因為沒有物件實體)，所以不會涉及與物件相關的動作
+            document.write("Bike:m1():"+ this.name +"<br>")   //this.namec會讀不到
+        }
+
+    }
+
+    // Scooter使用的是bike(父)的建構式
+    //沒有自己的建構式會拿爸爸的，自己做自己的建構式但沒有把爸爸的叫進來，所以它不知道要記得叫爸爸的建構式(super)
+    class Scooter extends Bike {  //extends擴張(發揚光大)繼承觀念   摩托車來將bike的精神發揚光大  
+        constructor(speed, gear) {
+            document.write("Scooter()<br>")
+            super(speed);   //要先叫爸爸才能繼承
+            this.gear = gear;
+            this.speed = speed;
+        }
+        chGear(gear) {
+            document.write("Scooter:chGear()<br>");    //新功能
+
+            this.gear = gear;
+        }
+        upSpeed() {   //雖然沒有寫function但骨子裡還是function
+            super.upSpeed();   //super爸爸  sub子類別     調用父類別然後再改量   //overwrite
+            document.write("Scooter:upSpeed()<br>");
+        }
+
+    }
+
+    class Brad {
+        constructor(...x) {
+            document.write("Brad()<br>");
+        }
+    }
+
+
+
+
+    let b1 = new Bike(123);
+    b1.upSpeed();
+    document.write(b1.speed + "<hr>");
+
+
+    let s1 = new Scooter(234, 1);
+    s1.chGear();
+    s1.upSpeed(4);
+    document.write(s1.speed + "<hr>");
+    document.write(b1 instanceof Bike);   //b1是不是腳踏車
+    document.write("<br>");
+    document.write(s1 instanceof Bike);   //s1是不是腳踏車
+    document.write("<br>");
+    document.write(b1 instanceof Scooter);   //b1是不是腳踏車
+    document.write("<br>");
+    document.write(s1 instanceof Scooter);   //s1是不是腳踏車
+    document.write("<hr>");
+    let brad1 = new Brad();
+    let brad2 = new Brad(1);
+    let brad3 = new Brad(1,2,3);
+
+
+
+    // Math.random();
+    Bike.m1();
+
+// 可以自己定義自己喜歡的class static方法   Brad裡面的m1方法(自己寫的)   就是Brad.m1() =>概念如同Math.random();
+// class Brad{
+//     static m1{
+        
+//     }
+// }
+
+
+
+
+// 你之所以會在，你的祖宗八帶都會在，因為每一層都會super上去，沒寫建構式就會去叫爸爸的
+
+//弱型別進入多型的概念
+</script>

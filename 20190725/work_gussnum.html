@@ -1,0 +1,120 @@
+<script src="gussnum.js"></script>
+<script>
+    
+    window.onload = function() {
+        replay();
+};
+
+
+
+    let d;  //幾位數
+    let logtext = "";
+    let times = 0;
+    // console.log(d);
+
+
+    let answer = creatAns(d);     //產生幾位數的亂數
+    function replay() {
+        d = document.getElementById("num").value;      //幾位數
+        console.log("我目前幾位數" + d);
+
+        answer = creatAns(d);
+        console.log("重新來的答案" + answer);        //偷看答案
+
+        logtext = "";
+        times = 0;
+        document.getElementById("log").innerHTML = "";
+        document.getElementById("input").value = "";
+        document.getElementById("input").focus();
+    }
+
+
+function auto(){
+    let guess = document.getElementById("input").value;
+    replay();
+    document.getElementById("input").innerHTML = guess;
+
+}
+
+
+//比對驗證
+    function doGess() {             
+
+        let guess = document.getElementById("input").value;
+
+
+
+//沒有出現內容
+        if (guess.length == 0 || guess.indexOf("e") >0) {
+            alert("你沒有輸入內容或內容出現e了!")
+            times--; 
+        }
+
+
+
+
+        times++;  //會回傳給 全域變數   
+
+        let result = checkAB(answer, guess);        
+        // document.getElementById("log").innerHTML = result;
+
+
+        logtext += `${times}:${guess} => ${result} <br>`;     //每次都累加一點點資料上去
+        document.getElementById("log").innerHTML = logtext;
+        document.getElementById("input").value = "";
+
+
+
+        //時間倒數
+        // guess = setInterval(auto, 5 * 1000)  //時間到要做的事情,時間
+    
+
+
+
+        if (result == `${d}A0B`) {
+            alert(`贏了拉!`);
+            replay();
+
+
+        } else if (times == 3) {
+            alert(`你輸了!超爛!: ${answer}`);
+        }
+        document.getElementById("input").focus();   //聚焦，會鎖定在輸入框
+    }
+
+
+
+
+</script>
+
+
+<h1>Guess Number Game</h1>
+<hr>
+<input type="number" id="input">
+<input type="button" value="Guess" onclick="doGess()">
+<!-- <input type="button" value="Guess" onclick="doGess()"> -->
+<input type="button" value="replay" onclick="replay()">
+<select id="num" onchange="replay()">
+    <option value="3" selected>3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+
+</select>
+<hr>
+<div id="log">
+    <!-- 124 => 1A0B <br> -->
+
+
+</div>
+
+<!-- 
+下拉選單選幾碼 (V)
+不能數字重複  
+不能空白   (V)
+輸入內容前製檢查
+整個美化
+猜完一次算時間，太久沒輸入就電腦自動輸入
+
+
+程式的核心功能一定要到位
+ -->

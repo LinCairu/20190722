@@ -1,0 +1,47 @@
+<!-- 用js創立HTML
+
+vue.js的概念-->
+
+
+<script>
+    let body = document.createElement("body");  //創立
+    document.body = body;   //指派
+
+    //HTML Object 裡面有的都是可以創件的元件
+    let header = document.createElement("h1");
+    header.innerHTML = "Ruby";
+    body.appendChild(header); //網頁文件階層的概念  文件架構
+
+    let hr = document.createElement("hr");
+    body.appendChild(hr);
+
+    let table = document.createElement("table");
+    body.appendChild(table);
+    table.setAttribute("border", "1");   //設定屬性值
+    table.setAttribute("width", "100%");
+
+
+
+
+    const ROW = 3;    //const的變數名稱會用大寫，幾排
+    const START = 2;   //從多少開始數
+    const COL = 3;     //幾欄
+
+    for (let k = 0; k < ROW; k++) {    //k = 5列
+        let tr = document.createElement("tr");
+        table.appendChild(tr);
+        for (let j = START; j < (START + COL); j++) {   //j = 4個
+            let td = document.createElement("td");
+            tr.appendChild(td);
+            let newj = j + k * COL;
+            for (let i = 1; i <= 9; i++) {
+                let r = newj * i;
+                td.innerHTML += `${newj} X ${i} = ${r} <br>`;
+            }
+        }
+    }
+
+
+
+
+</script>

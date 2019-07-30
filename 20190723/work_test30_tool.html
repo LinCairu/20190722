@@ -24,6 +24,7 @@
     .btn {
         width: 240px;
         height: 40px;
+        margin: 0  0.8% 0 0;
     }
     body {
         padding: 3% 5%;
@@ -31,13 +32,17 @@
     label {
         margin: 0 0.5% 0 0;
     }
+    #mesg{
+        margin: 5% 0 0 0;
+        font-size: 24px;
+    }
 </style>
 <body>
     <form>
         <h1>Gender:</h1>
         <span> 性別</span>
-        <input type="radio" name="gender" checked />女孩
-        <input type="radio" name="gender" />男孩<br>
+        <input type="radio" name="gender" value="2" id="girl" checked/>女孩
+        <input type="radio" name="gender" value="1" id="boy" />男孩<br>
         <br>
         <br>
         <h1>Area:</h1>
@@ -77,9 +82,14 @@
         <br>
         <br>
         <br>
-        <input type="button" value="產生一個身分證號碼給我" onclick="creatTWID()" class="btn">
-    </form>
+        <input type="button" value="我懶得選!" onclick="creatTWID()" class="btn">
+        <input type="button" value="男女有別!" onclick="creatTWIDByGender()" class="btn">
+        <input type="button" value="我住哪裡?" onclick="creatTWIDByArea()" class="btn">
+        <input type="button" value="聽我的就對了!" onclick="creatTWIDByAll()" class="btn">
 
+
+    </form>
+<span id="mesg"></span>
     <script src="work_test30_tool.js"></script>
 
 </body>

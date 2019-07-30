@@ -1,0 +1,54 @@
+<script>
+    let body = document.createElement("body");    //document創出來的body元素，目前還只是記憶體的位置
+    document.body = body  ;    //創立body的物件實體  本身document就有body 所以會有兩個body
+
+
+    let header = document.createElement("h1");
+    // let h1text = document.createTextNode('Ruby');     //產生一個文字節點
+    // header.appendChild(h1text);
+    header.innerHTML = "Ruby";         //上面兩行可以省略成這一行就好
+
+    document.body.appendChild(header); //d裡面有b裡面有h
+
+    let hr = document.createElement("hr");  //加上一條分隔線
+    document.body.appendChild(hr);
+
+
+    let ul = document.createElement("ul");
+    document.body.append(ul);
+
+    let ritem;    //把區域變數的存放區拉出來
+
+    for (let i = 0; i < 4; i++) {
+        let li = document.createElement("li");
+        li.innerHTML = `第${i + 1}個`;
+        ul.appendChild(li);   // 增加小朋友跟在元件後面
+
+        if (i == 2) ritem = li;
+
+
+    }
+    ul.removeChild(ritem);
+
+    let hr2 = hr.cloneNode();  //只會複製基本屬性
+    document.body.appendChild(hr2);    //appendChild 只是在底下增加階層，但不是變成擁有它的成員
+
+
+let ul2 = ul.cloneNode();
+document.body.appendChild(ul2);   //，底下的小朋友屬性都不會  底下的add都沒有
+
+    for (let i = 0; i < 4; i++) {
+        let li = document.createElement("li");   
+        li.innerHTML = `第${i + 1}個`;
+        ul2.appendChild(li);   // 所以要重新增加小朋友跟在元件後面
+
+    
+
+
+    }
+
+
+
+</script>
+<h1>另一個body</h1>
+<!-- h1是標籤  "另一個body"是裡面的東西 -->

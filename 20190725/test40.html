@@ -1,0 +1,29 @@
+<script>
+let ruby={          //我在定義ruby  先定義出大家的屬性(屬性大家可以都不同)跟方法(但方法大家可以共用)
+    name:"rubylin",
+    age:28,
+    gender:"girl",
+    getinfo:function(){
+        return this.name + ":" + this.age;
+    }
+
+};
+
+let peach={          //但其他人就只要有屬性
+    name:"peachwu",
+    age:30,
+    gender:"girl",
+
+};
+
+let blue={          
+    name:"bluelia",
+    age:32,
+    gender:"boy",
+
+};
+document.write(ruby.getinfo.call(blue));   //從這邊去取得ruby裡面的方法，呼叫peach或blue進來，也可以取得其內容屬性
+
+
+//物件和物件之間的差異，重點在於屬性不同
+</script>

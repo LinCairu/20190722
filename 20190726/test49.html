@@ -1,0 +1,47 @@
+<meta charset="utf-8">
+<!-- 解決中文亂碼 -->
+<script>
+
+
+
+    //匿名寫法 function沒有名字  匿包
+    // setInterval(() => {
+    // }, interval);
+
+    // setInterval(() => {
+    //     console.log(parseInt(Math.random()*100));
+    // }, 1*1000);
+
+
+
+    setInterval(() => {
+        let clock = new Date();
+        let clockString =
+            // clock.getFullYear() + "-" +     //西元
+            clock.getTWYear() + "-" +   //民國
+            // clock.getMonth()  + "-" +   //以0開始   西方人的月分不是用數字
+            clock.getTWMonth() + "-" +
+            clock.getDate() + "-" +
+            clock.getCWeek();
+
+        now.innerHTML = clockString;
+    }, 1 * 1000);
+
+    // -----------------------------------------------------------------------------
+    //自己擴充功能  Date沒有民國，自己來產生
+    //自己製作制式的格式
+    Date.prototype.getTWYear = function () {
+        return this.getFullYear() - 1911;   //要呼叫該物件的方法
+    }
+    Date.prototype.getTWMonth = function () {
+        return this.getMonth() + 1;    //this這個Date的物件實體所講的那一天   
+    }
+
+    Date.prototype.getCWeek = function () {
+        let w =  this.getDay();
+        let ws = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+        return ws[w];
+    }
+
+</script>
+目前日期時間 <span id="now"></span>
